@@ -6,7 +6,7 @@ public class Card {
   private CardName name;
   // private CardValue value;
 
-  public Card(CardType type, CardName name){
+  public Card(CardType type, CardName name) {
     this.type = type;
     this.name = name;
     // this.value = value;
@@ -20,8 +20,6 @@ public class Card {
     return this.name;
   }
 
-  // public CardValue getValue() {
-  //   return this.value;
-  // }
+  
 
 }
