@@ -2,6 +2,7 @@ package deck;
 import java.util.ArrayList;
 import java.util.Collections;
 import card.*;
+import player.*;
 
 public class Deck {
 
@@ -32,6 +33,10 @@ public class Deck {
 
   public Card showCard() {
     return pile.get(0);
+  }
+
+  public void giveCard() {
+    pile.remove(0);
   }
 
 }

@@ -23,4 +23,18 @@ public class DeckTest {
     assertEquals(true, deck.showCard() instanceof Card);
   }
 
+  @Test
+  public void canDeckGiveCard() {
+    deck.giveCard();
+    assertEquals(51, deck.amountOfCardsInDeck());
+  }
+
+  @Test
+  public void canDeckGiveMoreCards() {
+    deck.giveCard();
+    deck.giveCard();
+    deck.giveCard();
+    assertEquals(49, deck.amountOfCardsInDeck());
+  }
+
 }
