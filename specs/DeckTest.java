@@ -19,7 +19,7 @@ public class DeckTest {
   }
 
   @Test
-  public void hasDeckCardType() {
+  public void containsDeckCardType() {
     assertEquals(true, deck.showCard() instanceof Card);
   }
 
