@@ -6,7 +6,6 @@ import game.*;
 public class GameTest {
 
   Game game;
-  Player player;
 
   @Before
   public void before() {
@@ -30,11 +29,6 @@ public class GameTest {
   }
 
   @Test
-  public void doesDeckExist() {
-    assertEquals(52, game.getDeck().amountOfCardsInDeck());
-  }
-
-  @Test
   public void canGetTurnCount() {
     assertEquals(0, game.getTurnCount());
   }
@@ -47,9 +41,11 @@ public class GameTest {
     assertEquals(3,game.getTurnCount());
   }
 
-  // @Test
-  // public void canPlayGame() {
-
-  // }
+  @Test
+  public void canGameDistributeCards() {
+    game.distributeCards();
+    assertEquals(1, game.getPlayerByIndex(0).cardCount());
+    assertEquals(50, game.getDeck().cardCount());
+  }
 
 }

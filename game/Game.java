@@ -1,29 +1,30 @@
 package game;
 import deck.*;
 import player.*;
+import card.*;
 import java.util.ArrayList;
 
 public class Game {
 
   private int numOfPlayers;
   private ArrayList<Player> players;
-  private Deck deck;
   private int turnCount;
+  private Deck deck;
 
   public Game(int numOfPlayers) {
     this.numOfPlayers = numOfPlayers;
     this.players = new ArrayList<Player>();
-    this.deck = new Deck();
     this.turnCount = 0;
+    this.deck = deck;
     this.setupGame();
-  }
-
-  public Deck getDeck() {
-    return deck;
   }
 
   public void addPlayer(Player player) {
     players.add(player);
+  }
+
+  public Deck getDeck() {
+    return deck;
   }
 
   public void setupGame() {
@@ -31,6 +32,7 @@ public class Game {
       Player player = new Player("Player" + String.valueOf(i));
       players.add(player);
     }
+    this.deck = new Deck();
   }
 
   public int howManyPlayers() {
@@ -49,5 +51,12 @@ public class Game {
     this.turnCount += 1;
   }
 
+  public void distributeCards() {
+    for (Player player : players) {
+      Card topCard = deck.showCard();
+      player.addCard(topCard);
+      deck.giveCard();
+    }
+  }
 
 }

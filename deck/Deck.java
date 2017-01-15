@@ -27,7 +27,7 @@ public class Deck {
     Collections.shuffle(pile);
   }
 
-  public int amountOfCardsInDeck() {
+  public int cardCount() {
     return pile.size();
   }
 

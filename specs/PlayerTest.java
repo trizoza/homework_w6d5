@@ -33,4 +33,25 @@ public class PlayerTest {
     assertEquals(3, player.getScore());
   }
 
+  @Test
+  public void canPlayerRemoveCard() {
+    player.addCard(card);
+    player.giveCard();
+    assertEquals(0, player.cardCount());
+  }
+
+  @Test
+  public void canPlayerShowCardName() {
+    player.addCard(card);
+    Card shownCard = player.showCard();
+    assertEquals(CardName.TWO, shownCard.getName());
+  }
+
+  @Test
+  public void canPlayerShowCardType() {
+    player.addCard(card);
+    Card shownCard = player.showCard();
+    assertEquals(CardType.HEART, shownCard.getType());
+  }
+
 }

@@ -15,7 +15,7 @@ public class DeckTest {
 
   @Test
   public void canSetupDeckOf52() {
-    assertEquals(52, deck.amountOfCardsInDeck());
+    assertEquals(52, deck.cardCount());
   }
 
   @Test
@@ -26,7 +26,7 @@ public class DeckTest {
   @Test
   public void canDeckGiveCard() {
     deck.giveCard();
-    assertEquals(51, deck.amountOfCardsInDeck());
+    assertEquals(51, deck.cardCount());
   }
 
   @Test
@@ -34,7 +34,7 @@ public class DeckTest {
     deck.giveCard();
     deck.giveCard();
     deck.giveCard();
-    assertEquals(49, deck.amountOfCardsInDeck());
+    assertEquals(49, deck.cardCount());
   }
 
 }

@@ -34,6 +34,13 @@ public class Player {
     this.score += 1;
   }
 
+  public void giveCard() {
+    hand.remove(0);
+  }
+
+  public Card showCard() {
+    return hand.get(0);
+  }
 
 
 }
