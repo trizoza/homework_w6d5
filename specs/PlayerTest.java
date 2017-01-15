@@ -15,9 +15,22 @@ public class PlayerTest {
   }
 
   @Test 
-  public void canGetCard(){
+  public void canGetCard() {
     player.addCard(card);
     assertEquals(1, player.cardCount());
+  }
+
+  @Test
+  public void canGetScore() {
+    assertEquals(0, player.getScore());
+  }
+
+  @Test
+  public void canIncreaseScore() {
+    player.increaseScore();
+    player.increaseScore();
+    player.increaseScore();
+    assertEquals(3, player.getScore());
   }
 
 }

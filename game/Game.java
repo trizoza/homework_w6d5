@@ -7,11 +7,19 @@ public class Game {
 
   private int numOfPlayers;
   private ArrayList<Player> players;
+  private Deck deck;
+  private int turnCount;
 
   public Game(int numOfPlayers) {
     this.numOfPlayers = numOfPlayers;
     this.players = new ArrayList<Player>();
+    this.deck = new Deck();
+    this.turnCount = 0;
     this.setupGame();
+  }
+
+  public Deck getDeck() {
+    return deck;
   }
 
   public void addPlayer(Player player) {
@@ -32,5 +40,14 @@ public class Game {
   public Player getPlayerByIndex(int num) {
     return players.get(num);
   }
+
+  public int getTurnCount() {
+    return turnCount;
+  }
+
+  public void increaseTurnCount() {
+    this.turnCount += 1;
+  }
+
 
 }
