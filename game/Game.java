@@ -8,12 +8,14 @@ public class Game {
 
   private int numOfPlayers;
   private ArrayList<Player> players;
+  private ArrayList<Player> winners;
   private int turnCount;
   private Deck deck;
 
   public Game(int numOfPlayers) {
     this.numOfPlayers = numOfPlayers;
     this.players = new ArrayList<Player>();
+    this.winners = new ArrayList<Player>();
     this.turnCount = 0;
     this.deck = deck;
     this.setupGame();
@@ -39,6 +41,10 @@ public class Game {
     return players.size();
   }
 
+  public int howManyWinners() {
+    return winners.size();
+  }
+
   public Player getPlayerByIndex(int num) {
     return players.get(num);
   }
@@ -55,8 +61,34 @@ public class Game {
     for (Player player : players) {
       Card topCard = deck.showCard();
       player.addCard(topCard);
+      player.setScore();
       deck.giveCard();
     }
+  }
+
+  public ArrayList<Player> findWinner() {
+    int maxScore = 0;
+    ArrayList<Player> highestCardHolders = new ArrayList<Player>();
+    for (Player player : players) {
+      if (maxScore == 0 || player.getScore() > maxScore) {
+        highestCardHolders = new ArrayList<Player>();
+        highestCardHolders.add(player);
+        maxScore = player.getScore();
+      } 
+      else if (player.getScore() == maxScore) {
+        highestCardHolders.add(player);
+      }
+    }
+    winners = highestCardHolders;
+    return winners;
+  }
+
+  public void play() {
+    while (howManyWinners() != 1) {
+      distributeCards();
+      findWinner();
+    }
+    System.out.println("This game won " + winners.get(0).getName() + " with " + winners.get(0).showCard().getName() + " of " + winners.get(0).showCard().getType());
   }
 
 }

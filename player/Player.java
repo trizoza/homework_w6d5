@@ -30,8 +30,8 @@ public class Player {
     return this.score;
   }
 
-  public void increaseScore() {
-    this.score += 1;
+  public void setScore() {
+    this.score = hand.get(0).getValue();
   }
 
   public void giveCard() {

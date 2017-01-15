@@ -26,11 +26,18 @@ public class PlayerTest {
   }
 
   @Test
-  public void canIncreaseScore() {
-    player.increaseScore();
-    player.increaseScore();
-    player.increaseScore();
-    assertEquals(3, player.getScore());
+  public void canSetScore() {
+    player.addCard(card);
+    player.setScore();
+    assertEquals(2, player.getScore());
+  }
+
+  @Test
+  public void canGetScoreOfAce() {
+    Card newCard = new Card(CardType.HEART, CardName.ACE);
+    player.addCard(newCard);
+    player.setScore();
+    assertEquals(14, player.getScore());
   }
 
   @Test

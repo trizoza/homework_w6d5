@@ -48,4 +48,31 @@ public class GameTest {
     assertEquals(50, game.getDeck().cardCount());
   }
 
+  @Test
+  public void canGetWinnersBeforePlay() {
+    assertEquals(0, game.howManyWinners());
+  }
+
+  @Test
+  public void canFindWinner() {
+    Game newGame = new Game(52);
+    newGame.distributeCards();
+    newGame.findWinner();
+    assertEquals(4, newGame.howManyWinners());
+  }
+
+  @Test
+  public void canFindJustOneWinner() {
+    Game newGame = new Game(1);
+    newGame.distributeCards();
+    newGame.findWinner();
+    assertEquals(1, newGame.howManyWinners());
+  }
+
+  @Test
+  public void canPlay() {
+    game.play();
+    assertEquals(1, game.howManyWinners());
+  }
+
 }
