@@ -87,8 +87,10 @@ public class Game {
     while (howManyWinners() != 1) {
       distributeCards();
       findWinner();
+      increaseTurnCount();
     }
     System.out.println("This game won " + winners.get(0).getName() + " with " + winners.get(0).showCard().getName() + " of " + winners.get(0).showCard().getType());
+    System.out.println("Turns taken: " + turnCount);
   }
 
 }
